@@ -1,12 +1,12 @@
 import React from 'react';
-import {offers} from './offers';
+import offers from './offers';
 import { titleMaker, priceMaker, quantityMaker } from './funcs';
 
 export default function Listing({ items }) {
-	console.log(offers)
-  const resultArr = items;
-  offers.forEach(elem => {
-  	const offer = JSON.parse(elem);
+	const resultArr = offers.map(offer => {
+    if (offer.state !== 'active') {
+      return
+    }
   	const title = titleMaker(offer.title);
   	const price = priceMaker(offer.currency_code, offer.price);
     const quantityClass = quantityMaker(offer.quantity);
