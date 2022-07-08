@@ -23,7 +23,7 @@ export default function Listing({ items }) {
         <p className='item-quantity ${quantityClass}' >{quantityText}</p>
       </div>
     </div>
-    resultArr.push(tag)
+    return tag;
   });
 
   return(
